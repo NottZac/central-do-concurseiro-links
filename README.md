@@ -1,45 +1,50 @@
 # Central do Concurseiro — Links
 
-Página única (estilo linktree) com o logo, o link do site, o WhatsApp, o Instagram
-e uma prévia das matérias do SEDUC-AM e do SEDUC-CE, cada uma apontando para o
-catálogo completo no site principal.
+Página estilo Linktree premium: começa só com os botões principais (Concursos e
+Apostilas, WhatsApp, site, grupos, Instagram) e, ao clicar em "Concursos e
+Apostilas", abre a navegação completa — concurso → matéria → kit — sem
+recarregar a página (tudo em `public/index.html` + `public/js/` +
+`public/css/`).
 
-Projeto Firebase: `linkthree-cdc` (separado do `central-do-concurso`).
+Projeto Firebase: `linkthree-cdc`.
 Endereço final: `https://central-do-concurseiro-links.web.app/`
 (o projeto se chama `linkthree-cdc`, mas o site de Hosting dentro dele tem
-esse nome próprio — dá pra ter um nome de projeto e um nome de link diferentes).
+esse nome próprio).
 
 ## Publicar
 
-É só rodar o `publicar.bat`. Ele tenta fazer tudo sozinho:
+É só rodar o `publicar.bat`. Ele sobe pro GitHub e publica no Firebase Hosting
+automaticamente. Nas próximas vezes é só rodar de novo depois de qualquer
+mudança.
 
-1. **GitHub**: se você tiver o GitHub CLI (`gh`) instalado, o script cria o
-   repositório `central-do-concurseiro-links` na sua conta automaticamente (só
-   pede login se ainda não tiver feito) e já sobe o código. Se não tiver o
-   `gh` instalado, ele avisa e você cria manualmente em
-   `https://github.com/new` (nome `central-do-concurseiro-links`, conta
-   NottZac, vazio, sem README) — depois só rodar o `publicar.bat` de novo.
-   Pra instalar o `gh`: `winget install --id GitHub.cli`.
-2. **Firebase**: pede login (mesma conta de sempre), cria o site de Hosting
-   `central-do-concurseiro-links` dentro do projeto `linkthree-cdc` (só na
-   primeira vez) e publica.
+## Como editar o conteúdo
 
-Nas próximas vezes é só rodar `publicar.bat` de novo.
+Todo o conteúdo (concursos, matérias/kits, preço, WhatsApp, Instagram, link do
+site, grupos) fica em **`public/js/config.js`** — é só pedir pro Claude editar
+esse arquivo que atualiza tudo (cards, listas, mensagem do WhatsApp de cada
+kit, etc.), sem precisar mexer no HTML.
 
-## Fotos das matérias
+- `AJUSTES`: número de WhatsApp, Instagram, link do site e preço padrão do kit.
+- `CONCURSOS`: nome, estado e link do grupo de WhatsApp de cada concurso
+  (SEDUC-AM já tem grupo; SEDUC-CE ainda não — por isso aparece "Em breve").
+- `NIVEIS`: níveis de cargo por concurso. Hoje só existe "Professor (Ensino
+  Superior)" nos dois — quando cadastrar cargos de nível médio/fundamental de
+  verdade (não fictícios), é só adicionar aqui que o seletor de nível aparece
+  sozinho na tela.
+- `KITS`: cada matéria vendida, com a lista de apostilas que vêm juntas no
+  kit (emoji, título, itens do kit).
 
-Os cards de "Língua Portuguesa", "Matemática" etc. mostram uma prévia com emoji
-até você subir a foto de verdade. Para trocar, salve a imagem dentro de
-`public/assets/fotos/` com o nome exato (retrato, tipo 4:5, .jpg):
+Painel administrativo visual (pra editar isso sem pedir pro Claude) ainda não
+foi construído — fica como próximo passo, reaproveitando o mesmo sistema de
+senha por clique na logo que os outros dois sites já usam.
 
-- `seduc-am-1.jpg`, `seduc-am-2.jpg`, `seduc-am-3.jpg`, `seduc-am-4.jpg`
-- `seduc-ce-1.jpg`, `seduc-ce-2.jpg`, `seduc-ce-3.jpg`, `seduc-ce-4.jpg`
+## Antes de considerar pronto pra divulgar
 
-Assim que o arquivo existir com esse nome, o card troca sozinho — não precisa
-mexer no HTML. Depois é só rodar `publicar.bat` de novo pra subir as fotos.
-
-## Trocar quais matérias aparecem
-
-Cada card em `public/index.html` tem `data-foto="seduc-am-1"` etc. Se quiser
-mostrar outra matéria no lugar, troca o emoji, o texto e o número do arquivo de
-foto correspondente — são só 8 blocos `<a class="card" ...>`, fácil de achar.
+- **Número de WhatsApp**: está usando o mesmo número já cadastrado no site
+  principal (5592984745492 / (92) 98474-5492). Confirma se é esse mesmo.
+- **Capas dos kits**: por enquanto cada kit mostra um emoji num fundo navy no
+  lugar de foto (igual às "capas provisórias" do site principal) — é só pedir
+  pra trocar por uma foto real quando tiver.
+- **Cargos de nível médio/fundamental**: não foram cadastrados ainda porque
+  não existem produtos reais pra eles hoje — só quando você tiver isso de
+  verdade.
