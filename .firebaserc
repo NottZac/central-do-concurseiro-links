@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "linkthree-cdc"
+  },
+  "targets": {
+    "linkthree-cdc": {
+      "hosting": {
+        "links": [
+          "central-do-concurseiro-links"
+        ]
+      }
+    }
   }
 }

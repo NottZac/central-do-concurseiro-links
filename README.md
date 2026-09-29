@@ -5,7 +5,9 @@ e uma prévia das matérias do SEDUC-AM e do SEDUC-CE, cada uma apontando para o
 catálogo completo no site principal.
 
 Projeto Firebase: `linkthree-cdc` (separado do `central-do-concurso`).
-Endereço final: `https://linkthree-cdc.web.app/`
+Endereço final: `https://central-do-concurseiro-links.web.app/`
+(o projeto se chama `linkthree-cdc`, mas o site de Hosting dentro dele tem
+esse nome próprio — dá pra ter um nome de projeto e um nome de link diferentes).
 
 ## Publicar
 
@@ -18,8 +20,9 @@ Endereço final: `https://linkthree-cdc.web.app/`
    `https://github.com/new` (nome `central-do-concurseiro-links`, conta
    NottZac, vazio, sem README) — depois só rodar o `publicar.bat` de novo.
    Pra instalar o `gh`: `winget install --id GitHub.cli`.
-2. **Firebase**: pede login (mesma conta de sempre) e publica direto no
-   projeto `linkthree-cdc`.
+2. **Firebase**: pede login (mesma conta de sempre), cria o site de Hosting
+   `central-do-concurseiro-links` dentro do projeto `linkthree-cdc` (só na
+   primeira vez) e publica.
 
 Nas próximas vezes é só rodar `publicar.bat` de novo.
 
