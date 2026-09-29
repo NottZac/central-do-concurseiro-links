@@ -1,0 +1,12 @@
+Salve aqui as fotos das matérias com o nome exato (veja o README.md na raiz do projeto):
+
+seduc-am-1.jpg
+seduc-am-2.jpg
+seduc-am-3.jpg
+seduc-am-4.jpg
+seduc-ce-1.jpg
+seduc-ce-2.jpg
+seduc-ce-3.jpg
+seduc-ce-4.jpg
+
+Pode apagar este arquivo quando terminar de subir as fotos.
